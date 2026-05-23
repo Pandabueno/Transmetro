@@ -1,10 +1,14 @@
 <?php
 namespace App\Models;
-use Illuminate\Database\Eloquent\Model;
-class Operador extends Model {
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Operador extends Authenticatable {
     protected $table = 'operadores';
     protected $fillable = ['estacion_id', 'nombre', 'usuario', 'password', 'rol'];
-    protected $hidden = ['password'];
+    protected $hidden = ['password', 'remember_token'];
+
+    public function getAuthIdentifierName(): string { return 'usuario'; }
+
     public function estacion() { return $this->belongsTo(Estacion::class); }
     public function alertasAtendidas() { return $this->hasMany(Alerta::class, 'atendida_por'); }
     public function esAdmin(): bool { return $this->rol === 'admin'; }
