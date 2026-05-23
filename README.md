@@ -5,7 +5,7 @@ Desarrollado por **Panda Solutions**. Sistema web para gestión del transporte p
 ## Stack tecnológico
 
 - Laravel 11 (PHP 8.2+)
-- MySQL 8+
+- **SQLite** (desarrollo local) / **PostgreSQL** (producción en Railway)
 - Blade + Tailwind CSS
 - Railway (hosting)
 
@@ -26,12 +26,8 @@ npm install && npm run build
 cp .env.example .env
 php artisan key:generate
 
-# 5. Configurar base de datos en .env
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=transmetro
-# DB_USERNAME=root
-# DB_PASSWORD=tu_password
+# 5. La base de datos local es SQLite — no necesitas instalar nada extra
+#    El archivo se crea automáticamente en database/database.sqlite
 
 # 6. Ejecutar migraciones y seeders
 php artisan migrate --seed
@@ -52,18 +48,19 @@ Acceder en: http://localhost:8000
 
 ## Variables de entorno en Railway
 
-Configurar en el panel de Railway:
+Configurar en el panel de Railway. **Agregar plugin PostgreSQL** en Railway y usar las variables que genera automáticamente:
 
 ```
 APP_KEY=         (generar con php artisan key:generate)
 APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://tu-app.railway.app
-DB_HOST=         (MySQL Railway internal host)
-DB_PORT=3306
+DB_CONNECTION=pgsql
+DB_HOST=         (Railway PostgreSQL internal host)
+DB_PORT=5432
 DB_DATABASE=railway
-DB_USERNAME=root
-DB_PASSWORD=     (MySQL Railway password)
+DB_USERNAME=postgres
+DB_PASSWORD=     (Railway PostgreSQL password)
 ```
 
 ## URL de producción

@@ -4,7 +4,7 @@
 | Estado | Tarea |
 |--------|-------|
 | [x] | **Tarea 1** — Instalación Laravel 11, config Railway, Procfile, railway.json, README, PLAN.md |
-| [ ] | **Tarea 2** — Migraciones, modelos Eloquent con relaciones, seeders con datos reales |
+| [x] | **Tarea 2** — Migraciones, modelos Eloquent con relaciones, seeders con datos reales |
 | [ ] | **Tarea 3** — Autenticación (LoginController, middleware CheckRol, rutas) |
 | [ ] | **Tarea 4** — Layout base (sidebar por rol, header, layouts/app y layouts/guest) |
 | [ ] | **Tarea 5** — Dashboard principal (tarjetas resumen, tabla alertas, tabla esperas) |
